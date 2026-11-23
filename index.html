@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Votre banque sur WhatsApp · Assistant client 24 h/24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--vert:#008069;--vert2:#25D366;--bulle:#D9FDD3;--fond:#EFEAE2;--encre:#111B21;--gris:#667781;--bleu:#0B3B66;--or:#C9A227;--filet:#E6E9EE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:var(--encre);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 56px;display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:start}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--vert);background:#E7F7EF;border-radius:999px;padding:6px 12px}
+.eyebrow svg{width:16px;height:16px}
+h1{font-size:44px;line-height:1.08;font-weight:800;letter-spacing:-.02em;margin:18px 0 14px;color:var(--bleu)}
+h1 span{color:var(--vert)}
+.lead{font-size:18px;line-height:1.55;color:#3B4A54;max-width:560px}
+.cta{display:flex;gap:12px;margin:26px 0 34px;flex-wrap:wrap}
+.btn{border:0;cursor:pointer;font:600 16px Inter,sans-serif;border-radius:12px;padding:14px 22px;display:inline-flex;align-items:center;gap:10px;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn-p{background:var(--vert2);color:#06301F;box-shadow:0 8px 20px rgba(37,211,102,.35)}
+.btn-s{background:#fff;color:var(--bleu);border:1.5px solid var(--filet)}
+.caps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:34px}
+.cap{display:flex;gap:10px;align-items:center;font-size:15px;color:#24323B;padding:11px 12px;border:1px solid var(--filet);border-radius:12px;cursor:pointer;background:#fff;text-align:left;font-family:inherit}
+.cap:hover{border-color:var(--vert2);background:#F5FCF8}
+.cap b{width:30px;height:30px;border-radius:8px;background:#E7F7EF;display:grid;place-items:center;font-size:16px;flex:none}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--gris);font-weight:700;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kpi{border:1px solid var(--filet);border-radius:16px;padding:18px 16px;background:#fff}
+.kpi .n{font-size:34px;font-weight:800;color:var(--bleu);letter-spacing:-.02em;line-height:1}
+.kpi .l{font-size:14px;font-weight:600;margin:8px 0 8px;color:#24323B;line-height:1.35}
+.kpi .m{font-size:12.5px;color:var(--gris);line-height:1.45}
+.kpi .m a{color:var(--vert)}
+.ref{margin-top:18px;display:flex;gap:14px;align-items:center;background:#F6F8FB;border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5;color:#3B4A54}
+.ref strong{color:var(--bleu)}
+.ref a{color:var(--vert);font-weight:600}
+.mm{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pill{font-size:12.5px;font-weight:600;border-radius:999px;padding:5px 10px}
+.om{background:#FFF1E6;color:#C2410C}.mtn{background:#FFF7CC;color:#7A5B00}.wave{background:#E6F4FF;color:#0B66C3}
+/* téléphone */
+.phone-col{position:sticky;top:24px}
+.phone{width:380px;height:780px;margin:0 auto;border-radius:52px;background:#0E1113;padding:12px;box-shadow:0 30px 60px rgba(11,59,102,.22),0 0 0 2px #2A2F33 inset}
+.screen{width:100%;height:100%;border-radius:42px;overflow:hidden;display:flex;flex-direction:column;background:var(--fond);position:relative}
+.status{height:40px;background:var(--vert);color:#fff;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center;padding:6px 26px 0}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:28px;background:#0E1113;border-radius:20px}
+.head{background:var(--vert);color:#fff;display:flex;align-items:center;gap:10px;padding:6px 12px 10px}
+.av{width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none}
+.av svg{width:22px;height:22px}
+.who{flex:1;line-height:1.2}
+.who b{font-size:15.5px;display:flex;align-items:center;gap:5px}
+.who small{font-size:12px;opacity:.85}
+.chat{flex:1;overflow-y:auto;padding:12px 10px 8px;background-color:var(--fond);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:14px 14px;scroll-behavior:smooth}
+.day{align-self:center;text-align:center;margin:4px auto 10px;font-size:11.5px;color:#54656F;background:#fff;border-radius:8px;padding:4px 10px;width:max-content;box-shadow:0 1px .5px rgba(0,0,0,.08)}
+.msg{max-width:84%;margin:3px 0;padding:7px 9px 6px;border-radius:9px;font-size:14px;line-height:1.42;position:relative;box-shadow:0 1px .5px rgba(0,0,0,.12);animation:pop .22s ease-out;white-space:pre-line;word-wrap:break-word}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.in{background:#fff;border-top-left-radius:2px}
+.out{background:var(--bulle);margin-left:auto;border-top-right-radius:2px}
+.t{display:block;text-align:right;font-size:10.5px;color:var(--gris);margin-top:2px}
+.out .t::after{content:" ✓✓";color:#53BDEB}
+.card{background:#F7F9FA;border-radius:7px;padding:8px 9px;margin:6px 0 2px;font-size:13px;white-space:normal}
+.row{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px dashed #E2E6E9}
+.row:last-child{border:0}
+.row span:last-child,.row b{white-space:nowrap;text-align:right}.row .p{color:#0A7C4A;font-weight:600}.row .d{color:#B42318;font-weight:600}
+.big{font-size:20px;font-weight:800;color:var(--bleu)}
+.agent{font-size:12px;font-weight:700;color:#C2410C;display:block;margin-bottom:2px}
+.sys{text-align:center;font-size:11.5px;color:#54656F;background:#FFF5C4;border-radius:8px;padding:5px 10px;margin:8px auto;max-width:90%}
+.typing{background:#fff;width:58px;padding:10px 12px;border-radius:9px;border-top-left-radius:2px;display:flex;gap:4px;margin:3px 0}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9AA5AC;animation:b 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 8px;background:var(--fond)}
+.chip{border:1px solid #CFE9DD;background:#fff;color:var(--vert);font:600 12.5px Inter,sans-serif;border-radius:16px;padding:7px 11px;cursor:pointer}
+.chip:hover{background:#E7F7EF}
+.bar{display:flex;gap:6px;align-items:center;padding:6px 8px 12px;background:var(--fond)}
+.bar input{flex:1;border:0;border-radius:22px;padding:11px 14px;font:14px Inter,sans-serif;outline:none}
+.send{width:42px;height:42px;border-radius:50%;background:var(--vert);border:0;display:grid;place-items:center;cursor:pointer}
+.send svg{width:20px;height:20px}
+.foot{grid-column:1/-1;border-top:1px solid var(--filet);padding-top:18px;font-size:12.5px;color:var(--gris);line-height:1.6}
+@media(max-width:960px){.wrap{grid-template-columns:1fr;gap:34px}.phone-col{position:static}h1{font-size:34px}.kpis{grid-template-columns:1fr}.caps{grid-template-columns:1fr}}
+@media(max-width:420px){.phone{width:100%;height:720px;border-radius:40px}.screen{border-radius:32px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section>
+  <span class="eyebrow"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>Assistant client bancaire sur WhatsApp</span>
+  <h1>Votre banque répond <span>24 h/24</span>, là où vos clients écrivent déjà.</h1>
+  <p class="lead">Solde, dernières opérations, échéance de prêt, simulation de crédit, opposition sur carte : le client obtient la réponse en quelques secondes sur WhatsApp. Ce qui demande un conseiller lui est transmis avec le dossier déjà résumé.</p>
+  <div class="cta">
+    <button class="btn btn-p" id="essayer"><svg width="18" height="18" viewBox="0 0 24 24" fill="#06301F"><path d="M8 5v14l11-7z"/></svg>Essayer</button>
+    <button class="btn btn-s" id="auto">Voir la conversation complète</button>
+  </div>
+  <h2>Ce que le client peut faire</h2>
+  <div class="caps">
+    <button class="cap" data-i="solde"><b>💳</b>Solde et dernières opérations</button>
+    <button class="cap" data-i="echeance"><b>📅</b>Prochaine échéance de prêt</button>
+    <button class="cap" data-i="simu"><b>🧮</b>Simulation de prêt : montant, durée, mensualité</button>
+    <button class="cap" data-i="carte"><b>🔒</b>Blocage immédiat de la carte</button>
+    <button class="cap" data-i="mm"><b>📲</b>Virements Orange Money, MTN MoMo, Wave</button>
+    <button class="cap" data-i="conseiller"><b>👩🏾‍💼</b>Transfert vers un conseiller, dossier résumé</button>
+  </div>
+  <h2>Trois chiffres d'impact</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="n">98 %</div><div class="l">des utilisateurs trouvent l'information cherchée sans appeler</div><div class="m">Méthode : chiffre publié par Bank of America pour son assistant Erica, mesuré sur ses utilisateurs (communiqué du 20 août 2025, <a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2025/08/a-decade-of-ai-innovation--bofa-s-virtual-assistant-erica-surpas.html" target="_blank" rel="noopener">source</a>).</div></div>
+    <div class="kpi"><div class="n">≈ 1 100 h</div><div class="l">de conseiller libérées chaque mois</div><div class="m">Méthode : estimation pour une banque recevant 20 000 demandes simples par mois (solde, échéance, carte), 4 minutes par demande au téléphone ou au guichet, 85 % réglées par l'assistant : 20 000 × 0,85 × 4 min ≈ 1 130 h. Hypothèses à remplacer par vos volumes.</div></div>
+    <div class="kpi"><div class="n">&lt; 1 min</div><div class="l">pour faire opposition sur une carte, y compris la nuit</div><div class="m">Méthode : parcours ci-contre, trois messages du client entre la demande et la référence d'opposition, contre l'attente d'un centre d'appels ou l'ouverture de l'agence.</div></div>
+  </div>
+  <div class="ref"><div>Référence : <strong>Erica, Bank of America</strong>. Près de 50 millions d'utilisateurs depuis 2018, plus de 3 milliards d'échanges, plus de 58 millions par mois. <a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2025/08/a-decade-of-ai-innovation--bofa-s-virtual-assistant-erica-surpas.html" target="_blank" rel="noopener">Lire le communiqué</a></div></div>
+  <div class="mm"><span class="pill om">Orange Money</span><span class="pill mtn">MTN MoMo</span><span class="pill wave">Wave</span><span class="pill" style="background:#F1F3F5;color:#3B4A54">Montants en FCFA</span></div>
+</section>
+
+<aside class="phone-col">
+  <div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="status"><span id="clock">09:41</span><span>●●●● 4G 🔋</span></div>
+    <div class="head">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M15 6l-6 6 6 6"/></svg>
+      <div class="av"><svg viewBox="0 0 24 24" fill="#0B3B66"><path d="M12 2 2 7v2h20V7L12 2Zm-7 9v7H3v2h18v-2h-2v-7h-2v7h-3v-7h-2v7H7v-7H5Z"/></svg></div>
+      <div class="who"><b>Votre banque <svg width="15" height="15" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#25D366"/><path d="m7.5 12.5 3 3 6-6.5" stroke="#fff" stroke-width="2.2" fill="none"/></svg></b><small id="st">Compte professionnel · en ligne</small></div>
+    </div>
+    <div class="chat" id="chat"><div class="day">AUJOURD'HUI</div></div>
+    <div class="chips" id="chips"></div>
+    <div class="bar"><input id="in" placeholder="Écrire un message" autocomplete="off"><button class="send" id="sendb" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg></button></div>
+  </div></div>
+</aside>
+<div class="foot">Montants affichés en francs CFA. Le taux de la simulation (9 % par an) est indicatif, hors assurance et frais de dossier ; l'offre définitive est établie par un conseiller après étude du dossier. Toute opération sensible (opposition, virement) passe par une confirmation du client. Assistant conçu avec les Experts IA Yelema.</div>
+</main>
+
+<script>
+const F=n=>Math.round(n).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')+' FCFA';
+const chat=document.getElementById('chat'),chips=document.getElementById('chips'),inp=document.getElementById('in'),st=document.getElementById('st');
+let h=9,mi=41,busy=false,simu={},cardState='active',auto=false;
+function now(){mi++;if(mi>59){mi=0;h++}return String(h).padStart(2,'0')+':'+String(mi).padStart(2,'0')}
+function add(html,cls,extra=''){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=extra+html+'<span class="t">'+now()+'</span>';chat.appendChild(d);chat.scrollTop=chat.scrollHeight;document.getElementById('clock').textContent=String(h).padStart(2,'0')+':'+String(mi).padStart(2,'0');return d}
+function sys(t){const d=document.createElement('div');d.className='sys';d.textContent=t;chat.appendChild(d);chat.scrollTop=chat.scrollHeight}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function bot(html,extra=''){const ty=document.createElement('div');ty.className='typing';ty.innerHTML='<i></i><i></i><i></i>';chat.appendChild(ty);chat.scrollTop=chat.scrollHeight;st.textContent='en train d\u2019écrire…';await sleep(auto?900:750);ty.remove();st.textContent='Compte professionnel · en ligne';add(html,'in',extra)}
+function setChips(list){chips.innerHTML='';list.forEach(([l,v])=>{const b=document.createElement('button');b.className='chip';b.textContent=l;b.onclick=()=>user(l,v);chips.appendChild(b)})}
+const MENU=[['💳 Solde','solde'],['📅 Mon échéance','echeance'],['🧮 Simuler un prêt','simu'],['🔒 Bloquer ma carte','carte'],['📲 Mobile money','mm'],['👩🏾‍💼 Un conseiller','conseiller']];
+const ops=[['22/11','Transfert vers Wave 07 •• •• 18',-25000],['21/11','Rechargement depuis Orange Money',50000],['20/11','Paiement carte · supermarché Cocody',-38450],['19/11','Transfert vers MTN MoMo 05 •• •• 63',-15000],['18/11','Virement reçu · Kouadio & Fils',150000]];
+const SOLDE=1245750;
+async function user(label,intent){if(busy)return;busy=true;chips.innerHTML='';add(label,'out');await handle(intent,label);busy=false}
+function parse(t){t=t.toLowerCase();
+ if(simu.step==='montant'){const n=parseInt(t.replace(/[^0-9]/g,''));if(n)return['montant',n*(t.includes('m')&&n<1000?1e6:1)]}
+ if(simu.step==='duree'){const n=parseInt(t.replace(/[^0-9]/g,''));if(n)return['duree',n]}
+ if(cardState==='confirm'&&/oui|ok|confirm/.test(t))return['carte_oui'];
+ if(cardState==='confirm'&&/non|annul/.test(t))return['carte_non'];
+ if(/solde|compte|op[ée]ration|reste/.test(t))return['solde'];if(/[ée]ch[ée]ance|mensualit|remboursement/.test(t))return['echeance'];
+ if(/pr[êe]t|cr[ée]dit|simul|emprunt/.test(t))return['simu'];if(/carte|bloq|vol|perdu|opposition/.test(t))return['carte'];
+ if(/orange|momo|mtn|wave|mobile|transf[ée]r|envoy/.test(t))return['mm'];if(/conseill|humain|agent|parler|appeler/.test(t))return['conseiller'];
+ if(/bonjour|salut|bonsoir|menu|aide/.test(t))return['menu'];return['?']}
+async function handle(i,v){
+ if(Array.isArray(i)){v=i[1];i=i[0]}
+ switch(i){
+ case 'menu':await bot('Que souhaitez-vous faire ?');setChips(MENU);break;
+ case 'solde':{let r=ops.map(o=>`<div class="row"><span>${o[0]} · ${o[1]}</span><span class="${o[2]>0?'p':'d'}">${o[2]>0?'+':'−'} ${F(Math.abs(o[2]))}</span></div>`).join('');
+  await bot(`Compte courant •••• 4821\n<div class="card">Solde disponible<div class="big">${F(SOLDE)}</div></div>Vos 5 dernières opérations :<div class="card">${r}</div>`);setChips([['📅 Mon échéance','echeance'],['📲 Mobile money','mm'],['↩️ Menu','menu']]);break}
+ case 'echeance':await bot(`Votre prêt personnel de ${F(2000000)} :<div class="card"><div class="row"><span>Prochaine échéance</span><b>vendredi 4 décembre 2026</b></div><div class="row"><span>Montant</span><b>${F(91369)}</b></div><div class="row"><span>Échéances restantes</span><b>9 sur 24</b></div><div class="row"><span>Prélevée sur</span><b>Compte •••• 4821</b></div></div>Votre solde actuel (${F(SOLDE)}) couvre cette échéance. Je vous envoie un rappel la veille ?`);setChips([['✅ Oui, rappel la veille','rappel'],['🧮 Simuler un prêt','simu'],['↩️ Menu','menu']]);break;
+ case 'rappel':await bot('C\u2019est noté : rappel le jeudi 3 décembre à 9 h, ici même sur WhatsApp.');setChips(MENU);break;
+ case 'simu':simu={step:'montant'};await bot('Quel montant souhaitez-vous emprunter ?');setChips([['1 000 000 FCFA',['montant',1e6]],['3 000 000 FCFA',['montant',3e6]],['5 000 000 FCFA',['montant',5e6]]]);break;
+ case 'montant':simu={step:'duree',P:v};await bot(`${F(v)}, c\u2019est noté. Sur quelle durée ?`);setChips([['12 mois',['duree',12]],['24 mois',['duree',24]],['36 mois',['duree',36]]]);break;
+ case 'duree':{const P=simu.P||3e6,n=v,r=.09/12,m=P*r/(1-Math.pow(1+r,-n));simu={};
+  await bot(`Voici votre simulation :<div class="card"><div class="row"><span>Montant</span><b>${F(P)}</b></div><div class="row"><span>Durée</span><b>${n} mois</b></div><div class="row"><span>Taux indicatif</span><b>9 % par an</b></div><div class="row"><span>Mensualité</span><b style="color:#0B3B66">${F(m)}</b></div><div class="row"><span>Coût des intérêts</span><b>${F(m*n-P)}</b></div></div>Hors assurance et frais de dossier. Un conseiller peut étudier votre demande et vous faire une offre ferme.`);
+  setChips([['👩🏾‍💼 Être rappelé par un conseiller','conseiller'],['🔁 Autre simulation','simu'],['↩️ Menu','menu']]);break}
+ case 'carte':cardState='confirm';await bot('Vous souhaitez faire opposition sur votre carte Visa •••• 7305.\n\n⚠️ L\u2019opposition est définitive : la carte ne pourra plus être utilisée. Répondez OUI pour confirmer.');setChips([['OUI, bloquer','carte_oui'],['Non, annuler','carte_non']]);break;
+ case 'carte_oui':cardState='bloquee';await bot(`🔒 Carte Visa •••• 7305 bloquée à ${String(h).padStart(2,'0')}:${String(mi+1).padStart(2,'0')}.\n<div class="card"><div class="row"><span>Référence</span><b>OPP-2611-48207</b></div><div class="row"><span>Nouvelle carte</span><b>à retirer en agence sous 7 jours ouvrés</b></div></div>Aucun paiement n'est plus accepté avec cette carte. Une opération vous paraît suspecte ?`);setChips([['👩🏾‍💼 Oui, parler à un conseiller','conseiller'],['↩️ Non, menu','menu']]);break;
+ case 'carte_non':cardState='active';await bot('Opposition annulée, votre carte reste active.');setChips(MENU);break;
+ case 'mm':await bot(`Depuis votre compte •••• 4821, vers quel portefeuille ?`);setChips([['🟠 Orange Money',['mmw','Orange Money|07 •• •• 41']],['🟡 MTN MoMo',['mmw','MTN MoMo|05 •• •• 63']],['🔵 Wave',['mmw','Wave|07 •• •• 18']]]);break;
+ case 'mmw':await bot(`Transfert vers ${v.split('|')[0]} :<div class="card"><div class="row"><span>Bénéficiaire</span><b>${v.split('|')[1]}</b></div><div class="row"><span>Montant</span><b>${F(20000)}</b></div><div class="row"><span>Frais</span><b>${F(200)}</b></div><div class="row"><span>Solde après</span><b>${F(SOLDE-20200)}</b></div></div>Pour valider, saisissez le code reçu par SMS dans votre application. Le transfert part dès validation.`);setChips([['↩️ Menu','menu']]);break;
+ case 'conseiller':await bot('Je vous mets en relation avec un conseiller. Je lui transmets le résumé de notre échange, vous n\u2019aurez rien à répéter.');sys('Fanta, conseillère clientèle · agence Plateau, a rejoint la conversation');await sleep(900);
+  await bot('Bonjour Madame Konan, je suis Fanta. J\u2019ai votre dossier sous les yeux. Je peux vous rappeler maintenant ou vous recevoir en agence demain à 10 h, comme vous préférez.','<span class="agent">Fanta · conseillère</span>');setChips([['📞 Rappelez-moi','rappelle'],['🏦 Demain 10 h en agence','rdv']]);break;
+ case 'rappelle':await bot('Je vous appelle dans 5 minutes au 07 •• •• 18.','<span class="agent">Fanta · conseillère</span>');setChips([['↩️ Menu','menu']]);break;
+ case 'rdv':await bot('Rendez-vous confirmé demain, mardi 24 novembre à 10 h, agence Plateau. Pensez à votre pièce d\u2019identité.','<span class="agent">Fanta · conseillère</span>');setChips([['↩️ Menu','menu']]);break;
+ default:await bot('Je n\u2019ai pas bien compris. Choisissez une option ci-dessous, ou écrivez par exemple « mon solde » ou « bloquer ma carte ».');setChips(MENU)}
+}
+async function start(){chat.innerHTML='<div class="day">AUJOURD\'HUI</div>';h=9;mi=41;cardState='active';simu={};
+ add('Bonjour','out');await bot('Bonjour Madame Konan 👋 Bienvenue sur l\u2019assistant WhatsApp de Votre banque, disponible 24 h/24.\n\nJe peux vous donner votre solde, votre prochaine échéance, simuler un prêt, bloquer votre carte, faire un transfert mobile money ou vous passer un conseiller.');setChips(MENU)}
+async function send(){const t=inp.value.trim();if(!t||busy)return;inp.value='';busy=true;chips.innerHTML='';add(t,'out');await handle(parse(t));busy=false}
+document.getElementById('sendb').onclick=send;inp.onkeydown=e=>{if(e.key==='Enter')send()};
+document.querySelectorAll('.cap').forEach(b=>b.onclick=()=>{document.querySelector('.phone').scrollIntoView({behavior:'smooth',block:'center'});const l={solde:'Mon solde',echeance:'Ma prochaine échéance',simu:'Simuler un prêt',carte:'Bloquer ma carte',mm:'Transfert mobile money',conseiller:'Parler à un conseiller'}[b.dataset.i];user(l,b.dataset.i)});
+document.getElementById('essayer').onclick=async()=>{auto=false;await start();document.querySelector('.phone').scrollIntoView({behavior:'smooth',block:'center'});inp.focus()};
+document.getElementById('auto').onclick=async()=>{if(busy)return;auto=true;busy=true;await start();
+ const seq=[['Mon solde','solde'],['Ma prochaine échéance','echeance'],['Simuler un prêt','simu'],['3 000 000 FCFA',['montant',3e6]],['24 mois',['duree',24]],['J\u2019ai perdu ma carte, bloquez-la','carte'],['OUI','carte_oui'],['Parler à un conseiller','conseiller']];
+ for(const [l,i] of seq){await sleep(1500);chips.innerHTML='';add(l,'out');await handle(i)}auto=false;busy=false};
+start();
+</script>
+</body>
+</html>
